@@ -1,0 +1,78 @@
+# Sample Documents for RAG-Chroma
+
+## Artificial Intelligence
+
+Artificial intelligence (AI) is the ability of machines to perform tasks that normally require human intelligence. It includes areas such as machine learning, natural language processing, computer vision, and robotics.
+
+### Machine Learning
+
+Machine learning is a branch of AI that allows computers to learn from data without being explicitly programmed. The main types are:
+
+1. **Supervised Learning**: Training with labeled data
+2. **Unsupervised Learning**: Discovering patterns in unlabeled data
+3. **Reinforcement Learning**: Learning through trial and error
+
+### Deep Learning
+
+Deep learning uses artificial neural networks with multiple layers to model complex abstractions in data. It is especially effective for:
+- Image recognition
+- Natural language processing
+- Machine translation
+- Content generation
+
+## Natural Language Processing
+
+Natural Language Processing (NLP) enables computers to understand, interpret, and generate human language. Applications include:
+
+- Chatbots and virtual assistants
+- Sentiment analysis
+- Machine translation
+- Text summarization
+- Text generation
+
+### Transformers
+
+Transformers revolutionized NLP through the attention mechanism. Famous models include:
+- BERT (Bidirectional Encoder Representations from Transformers)
+- GPT (Generative Pre-trained Transformer)
+- T5 (Text-to-Text Transfer Transformer)
+
+## Retrieval-Augmented Generation (RAG)
+
+RAG combines information retrieval with text generation. The process:
+
+1. **Indexing**: Documents are converted to embeddings and stored
+2. **Retrieval**: Search for relevant documents for a query
+3. **Generation**: LLM generates response based on retrieved context
+
+### Advantages of RAG
+- Responses based on updated information
+- Reduction of model hallucinations
+- Traceability of information sources
+- Lower cost than fine-tuning
+
+### ChromaDB
+
+ChromaDB is an open-source vector database optimized for:
+- Efficient storage of embeddings
+- Semantic similarity search
+- Integration with LangChain and other frameworks
+- Local data persistence
+
+## Embeddings
+
+Embeddings are vector representations of text that capture semantic meaning.
+Popular models include:
+- Sentence-Transformers (all-MiniLM-L6-v2)
+- OpenAI text-embedding-3-small
+- BERT embeddings
+
+An embedding converts words or phrases into numerical vectors where similar texts are close in the vector space.
+- Source traceability
+- No need to retrain the model
+
+### RAG Components
+- **Vector Store**: ChromaDB, Pinecone, Weaviate
+- **Embeddings**: Sentence-Transformers, OpenAI
+- **LLM**: GPT, Llama, Claude
+- **Framework**: LangChain, LlamaIndex

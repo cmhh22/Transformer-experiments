@@ -1,42 +1,43 @@
 # Transformer Experiments
 
-Colección de experimentos y proyectos con modelos Transformer (BERT, Qwen, RAG).
+Collection of experiments and projects with Transformer models (BERT, Qwen, RAG).
 
-## 📂 Proyectos
+## 📂 Projects
 
 ### BERT-Qwen-Classification
-Clasificación de texto usando BERT y Qwen con análisis comparativo.
+Text classification using BERT and Qwen with comparative analysis.
 
-- **Estado**: 🚀 En desarrollo
-- **Tecnologías**: PyTorch, Transformers, HuggingFace
-- [Ver proyecto →](./BERT-Qwen-Classification)
+- **Status**: 🚀 In development
+- **Technologies**: PyTorch, Transformers, HuggingFace
+- [View project →](./BERT-Qwen-Classification)
 
 ### RAG-Chroma
-Sistema de Retrieval-Augmented Generation con ChromaDB.
+Retrieval-Augmented Generation system with ChromaDB.
 
-- **Estado**: 📋 Planificado
-- **Tecnologías**: LangChain, ChromaDB, OpenAI
-- [Próximamente]
+- **Status**: ✅ Completed
+- **Technologies**: ChromaDB, Sentence-Transformers, FLAN-T5
+- [View project →](./RAG-Chroma)
 
-## 🎯 Objetivos
+## 🎯 Objectives
 
-- Implementar y comparar modelos Transformer de última generación
-- Desarrollar sistemas RAG para QA
-- Experimentar con fine-tuning y transfer learning
-- Análisis de attention mechanisms y embeddings
+- Implement and compare state-of-the-art Transformer models
+- Develop RAG systems for Question Answering
+- Experiment with fine-tuning and transfer learning
+- Analysis of attention mechanisms and embeddings
 
-## 📚 Recursos
+## 📚 Resources
 
 - [Hugging Face Transformers](https://huggingface.co/docs/transformers)
 - [BERT Paper](https://arxiv.org/abs/1810.04805)
 - [Qwen Technical Report](https://arxiv.org/abs/2309.16609)
+- [RAG Paper](https://arxiv.org/abs/2005.11401)
 
-## 👤 Autor
+## 👤 Author
 
 **Carlos Hernández**
 - GitHub: [@cmhh22](https://github.com/cmhh22)
 - LinkedIn: [Carlos Hernández](https://linkedin.com/in/cmhh22)
 
-## 📄 Licencia
+## 📄 License
 
-MIT License - ver [LICENSE](LICENSE)
+MIT License - see [LICENSE](LICENSE)
