@@ -1,0 +1,72 @@
+# Machine Learning - Fundamentos
+
+Machine Learning (ML) es una rama de la inteligencia artificial que permite a los sistemas aprender y mejorar automáticamente a partir de la experiencia sin ser programados explícitamente.
+
+## Tipos de Aprendizaje
+
+### Aprendizaje Supervisado
+El modelo aprende de datos etiquetados. Ejemplos:
+- Clasificación: Spam detection, diagnóstico médico
+- Regresión: Predicción de precios, pronóstico del tiempo
+
+Algoritmos populares:
+- Linear Regression
+- Logistic Regression
+- Random Forest
+- Support Vector Machines (SVM)
+- Gradient Boosting (XGBoost, LightGBM)
+
+### Aprendizaje No Supervisado
+El modelo encuentra patrones en datos sin etiquetar:
+- Clustering: K-Means, DBSCAN, Hierarchical
+- Reducción de dimensionalidad: PCA, t-SNE, UMAP
+- Detección de anomalías: Isolation Forest
+
+### Aprendizaje por Refuerzo
+El agente aprende mediante interacción con el entorno:
+- Q-Learning
+- Deep Q-Networks (DQN)
+- Policy Gradient Methods
+- Actor-Critic (A2C, A3C, PPO)
+
+## Proceso de ML
+
+1. **Recolección de datos**: Obtener datos relevantes
+2. **Preprocesamiento**: Limpieza, normalización, encoding
+3. **Feature Engineering**: Crear características útiles
+4. **Entrenamiento**: Ajustar el modelo a los datos
+5. **Evaluación**: Métricas como accuracy, precision, recall, F1
+6. **Deployment**: Poner el modelo en producción
+
+## Métricas de Evaluación
+
+### Clasificación
+- Accuracy: Proporción de predicciones correctas
+- Precision: TP / (TP + FP)
+- Recall: TP / (TP + FN)
+- F1-Score: Media armónica de precision y recall
+- AUC-ROC: Área bajo la curva ROC
+
+### Regresión
+- MSE (Mean Squared Error)
+- RMSE (Root Mean Squared Error)
+- MAE (Mean Absolute Error)
+- R² (Coefficient of Determination)
+
+## Frameworks Populares
+
+### Scikit-learn
+- Librería más usada para ML clásico
+- Interfaz consistente (fit, predict, transform)
+- Gran variedad de algoritmos
+- Excelente documentación
+
+### XGBoost / LightGBM / CatBoost
+- Gradient Boosting optimizado
+- Excelente para datos tabulares
+- Ganadores de muchas competencias Kaggle
+
+### Auto-ML
+- AutoSklearn, TPOT, H2O
+- Automatización de pipeline ML
+- Selección automática de modelos

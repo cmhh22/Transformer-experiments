@@ -1,162 +1,133 @@
-# 🔍 RAG-Chroma: Retrieval-Augmented Generation with ChromaDB
+# 🔍 RAG with ChromaDB
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/YOUR_USER/RAG-Chroma/blob/main/notebooks/rag_colab.ipynb)
+A **Retrieval-Augmented Generation (RAG)** system using ChromaDB as vector database. Designed to run on **Google Colab** with a **100% FREE and UNLIMITED** local LLM.
 
-## 📋 Description
-A complete **Retrieval-Augmented Generation (RAG)** system using ChromaDB as a vector database. This project implements a full pipeline for embeddings, semantic search, and contextualized response generation using Hugging Face models.
+![RAG Architecture](https://miro.medium.com/v2/resize:fit:1400/1*3q6xmUkB4l5VJv8Q8a8OVA.png)
 
-## 🎯 Objectives
-- ✅ Implement a functional RAG system with ChromaDB
-- ✅ Experiment with embedding models (Sentence-Transformers)
-- ✅ Optimize relevant document retrieval
-- ✅ Generate contextualized responses with FLAN-T5
+## 🚀 Quick Start on Colab
 
-## 🛠️ Technologies
-| Component | Technology |
-|-----------|------------|
-| **Vector Store** | ChromaDB |
-| **Embeddings** | Sentence-Transformers (all-MiniLM-L6-v2) |
-| **Generator** | FLAN-T5 (google/flan-t5-base) |
-| **Framework** | PyTorch, Transformers |
+1. **Open the notebook in Colab:**
+   
+   [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/YOUR_USERNAME/RAG-Chroma/blob/main/RAG_ChromaDB_Colab.ipynb)
 
-## 📊 Features
-- ✅ AI/ML knowledge base (10+ documents)
-- ✅ Vector embeddings with Sentence Transformers
-- ✅ Semantic search with cosine similarity
-- ✅ Metadata filtering (category, topic)
-- ✅ Contextual response generation
-- ✅ Evaluation with MRR and Accuracy metrics
-- ✅ **100% self-contained for Google Colab**
+2. **Enable GPU:**
+   - Go to `Runtime > Change runtime type > T4 GPU`
 
-## 🚀 Quick Start (Google Colab)
+3. **Run the notebook cells in order**
 
-**The easiest way to try the project:**
-
-1. Open the notebook in Colab: [rag_colab.ipynb](notebooks/rag_colab.ipynb)
-2. Run all cells in order
-3. Ask your own questions!
-
-## 💻 Local Installation
-
-```bash
-# Create virtual environment
-python -m venv venv
-venv\Scripts\activate  # Windows
-# source venv/bin/activate  # Linux/Mac
-
-# Install dependencies
-pip install -r requirements.txt
-```
-
-## 🎮 Usage
-
-### Interactive Notebook (recommended)
-```bash
-jupyter notebook notebooks/rag_colab.ipynb
-```
-
-### Main Pipeline
-```bash
-python main.py
-```
-
-### Functionality Tests
-```bash
-python test_quick.py
-```
+> ⚡ **No API key needed!** The model runs locally on Colab's free GPU.
 
 ## 📁 Project Structure
+
 ```
 RAG-Chroma/
-├── main.py                 # Main script
-├── test_quick.py           # Quick tests
-├── requirements.txt        # Dependencies
-├── README.md
-├── LICENSE
-├── src/
-│   ├── __init__.py
-│   ├── document_loader.py  # Document loading
-│   ├── embeddings.py       # Embedding generation
-│   ├── vectorstore.py      # ChromaDB operations
-│   ├── retriever.py        # Document retrieval
-│   ├── generator.py        # Response generation
-│   └── evaluator.py        # RAGAS metrics
-├── data/                   # Source documents
-│   └── sample_document.txt # Sample document
-├── models/                 # ChromaDB and models
-│   └── chroma_db/          # Vector database
-└── notebooks/              # Experimentation
-    └── rag_colab.ipynb     # Interactive demo
+├── 📓 RAG_ChromaDB_Colab.ipynb  # Main notebook
+├── 📁 data/                      # Documents to index
+│   ├── machine_learning.txt      # ML fundamentals
+│   ├── deep_learning.txt         # Neural networks
+│   ├── transformers.txt          # Transformer architecture
+│   └── rag_systems.txt           # RAG systems
+├── 📄 requirements.txt           # Dependencies
+└── 📄 README.md                  # This file
 ```
 
-## 🔧 Configuration
+## 🛠️ Technologies
 
-### Add Documents
-Place files in `data/` (supports .txt, .pdf, .md, .docx)
+| Component | Technology |
+|-----------|------------|
+| Vector Store | ChromaDB |
+| Embeddings | Sentence Transformers (all-MiniLM-L6-v2) |
+| Orchestration | LangChain |
+| LLM | TinyLlama 1.1B (Local, FREE, Unlimited) |
+| Document Loaders | PyPDF, python-docx |
 
-### Change Embedding Model
+## 📊 Features
+
+- ✅ **Multiple formats**: TXT, PDF, DOCX
+- ✅ **Smart chunking**: Recursive character splitting
+- ✅ **Free embeddings**: Sentence Transformers (local)
+- ✅ **FREE & Unlimited LLM**: Runs locally on GPU
+- ✅ **Persistence**: ChromaDB persists to disk
+- ✅ **Source citation**: Shows where information comes from
+- ✅ **Interactive chat**: Q&A interface in notebook
+
+## 🎯 How It Works
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│                      INDEXING (Offline)                      │
+├─────────────────────────────────────────────────────────────┤
+│  Documents → Chunking → Embeddings → ChromaDB               │
+│     📄          ✂️          🔢           💾                  │
+└─────────────────────────────────────────────────────────────┘
+                              ↓
+┌─────────────────────────────────────────────────────────────┐
+│                      QUERY (Online)                          │
+├─────────────────────────────────────────────────────────────┤
+│  Question → Embedding → Search → Context → LLM → Answer      │
+│     ❓          🔢         🔍        📚      🤖      💬       │
+└─────────────────────────────────────────────────────────────┘
+```
+
+## 📝 Add Your Own Documents
+
+### Option 1: Upload in Colab
+Run the "Upload files" cell and select your documents.
+
+### Option 2: Local data/ folder
+Place your files in the `data/` folder before uploading to Colab:
+- `.txt` - Text files
+- `.pdf` - PDF documents
+- `.docx` - Word documents
+
+### Option 3: Google Drive
 ```python
-from src.embeddings import EmbeddingManager
-
-# Available options:
-manager = EmbeddingManager(model_name="all-MiniLM-L6-v2")      # Lightweight
-manager = EmbeddingManager(model_name="all-mpnet-base-v2")     # Accurate
-manager = EmbeddingManager(model_name="paraphrase-multilingual-MiniLM-L12-v2")  # Multilingual
+from google.colab import drive
+drive.mount('/content/drive')
+# Then use: load_documents('/content/drive/MyDrive/my_documents')
 ```
 
-### Use OpenAI for Generation
+## ⚙️ Configuration
+
+### Adjust Chunking
 ```python
-import os
-os.environ["OPENAI_API_KEY"] = "your-api-key"
-
-from src.generator import ResponseGenerator
-generator = ResponseGenerator(retriever=retriever, use_local_model=False)
+text_splitter = RecursiveCharacterTextSplitter(
+    chunk_size=500,      # Increase for longer documents
+    chunk_overlap=50,    # Overlap between chunks
+)
 ```
 
-## 📈 Evaluation Metrics
-
-| Metric | Description |
-|--------|-------------|
-| Context Relevance | Relevance of retrieved context |
-| Answer Relevance | Relevance of generated answer |
-| Faithfulness | Answer fidelity to context |
-| Answer Correctness | Correctness vs ground truth |
-
-## 🔬 Main Components
-
-### DocumentLoader
+### Change Number of Retrieved Documents
 ```python
-loader = DocumentLoader(data_dir="data", chunk_size=1000, chunk_overlap=200)
-documents = loader.load_documents()
+retriever = vectorstore.as_retriever(
+    search_kwargs={"k": 5}  # Retrieve top 5 documents
+)
 ```
 
-### ChromaManager
-```python
-chroma = ChromaManager(persist_directory="./models/chroma_db", embedding_function=ef)
-chroma.add_documents(documents)
-```
+## 🔬 RAG Pipeline Explained
 
-### RetrieverManager
-```python
-retriever = RetrieverManager(vectorstore=chroma.vectorstore, k=4)
-docs = retriever.retrieve("What is RAG?")
-docs_diverse = retriever.mmr_retrieve("What is RAG?", lambda_mult=0.5)
-```
+1. **Document Loading**: Load documents from various formats (TXT, PDF, DOCX)
+2. **Text Splitting**: Divide documents into manageable chunks
+3. **Embedding Generation**: Convert text chunks to vector representations
+4. **Vector Storage**: Store embeddings in ChromaDB
+5. **Semantic Search**: Find relevant chunks based on query similarity
+6. **Answer Generation**: Use LLM to generate answers from retrieved context
 
-### ResponseGenerator
-```python
-generator = ResponseGenerator(retriever=retriever)
-response = generator.generate("What is machine learning?")
-result = generator.generate_with_citations("question", k=3)
-```
+## 📈 Performance Tips
 
-## 📝 Notes
-- Part of transformer-experiments project
-- Updated: January 2026
-- Compatible with ChromaDB >= 0.4.x and LangChain >= 0.2.x
+- Enable GPU for faster inference: `Runtime > Change runtime type > T4 GPU`
+- Reduce `k` in retriever for faster responses
+- Adjust `chunk_size` based on your document types
+- Use smaller embedding models for faster indexing
+
+## 🤝 Contributing
+
+Feel free to open issues or submit pull requests!
 
 ## 📄 License
-MIT License
 
-## 👤 Author
-Carlos M. Hernández
+MIT License - Feel free to use this project for learning and development.
+
+---
+
+**Built with ❤️ using LangChain, ChromaDB, and Hugging Face Transformers**

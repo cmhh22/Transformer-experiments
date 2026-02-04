@@ -1,0 +1,86 @@
+# Transformers - Arquitectura Revolucionaria
+
+La arquitectura Transformer, introducida en "Attention is All You Need" (2017) por Vaswani et al., revolucionó el procesamiento de lenguaje natural y más allá.
+
+## Componentes Clave
+
+### Self-Attention (Atención)
+Permite que cada token "atienda" a todos los demás tokens:
+
+1. **Query (Q)**: Lo que el token busca
+2. **Key (K)**: Lo que cada token ofrece
+3. **Value (V)**: La información real
+
+Fórmula: Attention(Q,K,V) = softmax(QK^T / √d_k) * V
+
+### Multi-Head Attention
+- Múltiples cabezas de atención en paralelo
+- Cada cabeza aprende diferentes patrones
+- Se concatenan y proyectan
+
+### Positional Encoding
+- Transformers no tienen noción de orden inherente
+- Se añade información posicional a los embeddings
+- Encodings sinusoidales o aprendidos (learned)
+- RoPE (Rotary Position Embedding) en modelos modernos
+
+### Feed-Forward Network (FFN)
+- Dos capas lineales con activación
+- Procesa cada posición independientemente
+- Expande y contrae dimensionalidad (ej: 768 -> 3072 -> 768)
+
+### Layer Normalization
+- Normaliza activaciones dentro de cada capa
+- Pre-norm vs Post-norm configurations
+- Estabiliza el entrenamiento
+
+## Arquitecturas Derivadas
+
+### Encoder-Only (BERT-style)
+- Bidireccional, ve todo el contexto
+- Ideal para clasificación, NER, embeddings
+- Ejemplos: BERT, RoBERTa, ALBERT, DistilBERT, DeBERTa
+
+### Decoder-Only (GPT-style)
+- Autoregresivo, genera token por token
+- Masked self-attention (causal)
+- Ideal para generación de texto
+- Ejemplos: GPT-2, GPT-3, GPT-4, LLaMA, Mistral, Claude
+
+### Encoder-Decoder (T5-style)
+- Encoder procesa entrada completa
+- Decoder genera salida condicionada
+- Ideal para traducción, summarization
+- Ejemplos: T5, BART, mT5, FLAN-T5
+
+## Large Language Models (LLMs)
+
+### Características
+- Billones de parámetros (70B, 405B+)
+- Entrenados en enormes corpus de texto
+- Capacidades emergentes (few-shot, reasoning)
+- In-context learning
+
+### Técnicas de Entrenamiento
+- **Pre-training**: Modelado de lenguaje en corpus grande
+- **Fine-tuning**: Ajuste para tarea específica
+- **RLHF**: Reinforcement Learning from Human Feedback
+- **Instruction Tuning**: Entrenamiento con instrucciones
+- **DPO**: Direct Preference Optimization
+
+### Optimizaciones de Inferencia
+- **LoRA**: Low-Rank Adaptation (fine-tuning eficiente)
+- **QLoRA**: LoRA con cuantización
+- **Flash Attention**: Atención más rápida y eficiente en memoria
+- **Quantization**: INT8, INT4, GGUF para menor memoria
+- **KV Cache**: Cachear keys y values para generación
+- **Speculative Decoding**: Acelerar generación
+
+## Aplicaciones
+- Chatbots y asistentes virtuales (ChatGPT, Claude)
+- Traducción automática
+- Generación de código (GitHub Copilot, CodeLlama)
+- Análisis de sentimiento
+- Question Answering
+- Summarization
+- Vision-Language Models (GPT-4V, LLaVA)

@@ -1,0 +1,86 @@
+# Deep Learning - Redes Neuronales Profundas
+
+Deep Learning es un subconjunto de Machine Learning basado en redes neuronales artificiales con múltiples capas (deep neural networks).
+
+## Fundamentos
+
+### Neurona Artificial (Perceptrón)
+- Recibe entradas ponderadas
+- Aplica una función de activación
+- Produce una salida
+
+### Funciones de Activación
+- **ReLU**: max(0, x) - Más usada en capas ocultas
+- **Sigmoid**: 1/(1+e^-x) - Salidas entre 0 y 1
+- **Tanh**: (e^x - e^-x)/(e^x + e^-x) - Salidas entre -1 y 1
+- **Softmax**: Para clasificación multiclase
+- **GELU**: Usada en Transformers
+- **Swish**: x * sigmoid(x) - Auto-gated activation
+
+## Arquitecturas Principales
+
+### Redes Feedforward (MLP)
+- Capas densamente conectadas
+- Información fluye en una dirección
+- Útil para datos tabulares
+
+### Redes Convolucionales (CNN)
+- Especializadas en procesamiento de imágenes
+- Capas convolucionales detectan patrones locales
+- Pooling reduce dimensionalidad
+- Arquitecturas: LeNet, AlexNet, VGG, ResNet, EfficientNet
+
+### Redes Recurrentes (RNN)
+- Procesan secuencias de datos
+- Mantienen estado interno (memoria)
+- Variantes: LSTM, GRU
+- Problema: Vanishing gradients en secuencias largas
+
+### Transformers
+- Arquitectura dominante actual
+- Mecanismo de atención (self-attention)
+- Procesamiento paralelo
+- Base de GPT, BERT, T5, etc.
+
+## Entrenamiento
+
+### Backpropagation
+- Calcula gradientes de la función de pérdida
+- Propaga errores hacia atrás
+- Actualiza pesos con optimizador
+
+### Optimizadores
+- **SGD**: Stochastic Gradient Descent
+- **Adam**: Adaptive Moment Estimation (más popular)
+- **AdamW**: Adam con weight decay
+- **RMSprop**: Para RNNs
+- **LAMB**: Para grandes batch sizes
+
+### Regularización
+- **Dropout**: Desactiva neuronas aleatoriamente
+- **Batch Normalization**: Normaliza activaciones
+- **Layer Normalization**: Usada en Transformers
+- **Weight Decay (L2)**: Penaliza pesos grandes
+- **Data Augmentation**: Aumenta variedad de datos
+
+## Frameworks
+
+### PyTorch
+- Flexible, preferido en investigación
+- Ejecución dinámica (define-by-run)
+- Excelente para debugging
+
+### TensorFlow/Keras
+- Producción, TensorFlow Serving
+- TensorFlow Lite para móviles
+- Keras como API de alto nivel
+
+### JAX
+- Diferenciación automática
+- Compilación XLA
+- Usado en investigación de Google
+
+### Hugging Face
+- Modelos pre-entrenados de NLP
+- Transformers library
+- Hub de modelos

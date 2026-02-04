@@ -1,0 +1,160 @@
+# RAG - Retrieval-Augmented Generation
+
+RAG combina recuperación de información con generación de lenguaje para crear sistemas que pueden responder preguntas basándose en documentos específicos.
+
+## ¿Por qué RAG?
+
+### Limitaciones de LLMs puros
+- Conocimiento desactualizado (fecha de corte de entrenamiento)
+- No acceso a información privada/propietaria
+- Alucinaciones: inventan información falsa con confianza
+- No pueden citar fuentes específicas
+- Contexto limitado (aunque cada vez mayor)
+
+### Ventajas de RAG
+- Información actualizada en tiempo real
+- Acceso a documentos privados y corporativos
+- Respuestas fundamentadas en fuentes verificables
+- Reducción significativa de alucinaciones
+- Trazabilidad y citación de fuentes
+- Más económico que fine-tuning
+
+## Arquitectura RAG
+
+### 1. Indexación (Offline/Batch)
+
+#### Carga de documentos
+- PDFs, TXT, DOCX, HTML, Markdown
+- Bases de datos, APIs
+- Web scraping
+
+#### Chunking (División en fragmentos)
+- Por caracteres/tokens fijos
+- Por oraciones/párrafos
+- Recursive character splitting
+- Semantic chunking (basado en embeddings)
+- Chunk size típico: 500-1000 caracteres
+- Overlap: 50-100 caracteres
+
+#### Embedding (Vectorización)
+- Sentence Transformers (all-MiniLM, bge, e5)
+- OpenAI Embeddings (text-embedding-3)
+- Cohere Embeddings
+- Dimensiones típicas: 384, 768, 1024, 1536
+
+#### Almacenamiento en Vector Store
+- ChromaDB, FAISS, Pinecone
+- Weaviate, Milvus, Qdrant
+- pgvector (PostgreSQL)
+
+### 2. Recuperación (Online/Query time)
+
+#### Query embedding
+- Convertir pregunta del usuario a vector
+- Mismo modelo de embedding usado en indexación
+
+#### Similarity search
+- Cosine similarity (más común)
+- Euclidean distance (L2)
+- Dot product (inner product)
+- Típicamente top-k (k=3-10)
+
+#### Reranking (opcional pero recomendado)
+- Cross-encoder reranking
+- Cohere Rerank
+- Mejora precisión significativamente
+
+### 3. Generación (Augmented Generation)
+
+#### Prompt construction
+- System prompt con instrucciones
+- Contexto recuperado
+- Pregunta del usuario
+- Formato estructurado
+
+#### LLM call
+- GPT-4, Claude, LLaMA, Mistral
+- Temperature baja (0-0.3) para factualidad
+- Control de tokens de salida
+
+#### Post-processing
+- Formatear respuesta
+- Añadir citas/fuentes
+- Validar coherencia
+
+## Técnicas Avanzadas
+
+### Hybrid Search
+- Combina búsqueda semántica + keyword (BM25)
+- Mejor cobertura de consultas
+- Reciprocal Rank Fusion para combinar resultados
+
+### Multi-Query RAG
+- Genera múltiples variantes de la pregunta
+- Recupera documentos para cada variante
+- Fusiona y deduplica resultados
+
+### Self-RAG
+- El modelo decide cuándo recuperar
+- Evalúa relevancia de documentos recuperados
+- Auto-crítica de respuestas generadas
+
+### Agentic RAG
+- Agentes que deciden qué herramientas usar
+- Pueden iterar y refinar búsquedas
+- Routing entre múltiples fuentes de datos
+- Planificación de consultas complejas
+
+### Contextual Compression
+- Comprimir contexto antes de enviar a LLM
+- Extraer solo partes relevantes
+- Reducir costos y mejorar calidad
+
+## Vector Stores Populares
+
+### ChromaDB
+- Open source, fácil de usar
+- Perfecto para desarrollo y prototipos
+- Persistencia local o en memoria
+- Integración nativa con LangChain
+
+### FAISS (Facebook AI)
+- Muy rápido, optimizado para GPU
+- Ideal para grandes volúmenes (millones de vectores)
+- Sin servidor, solo librería
+
+### Pinecone
+- Servicio cloud gestionado
+- Escalable, alta disponibilidad
+- Metadata filtering avanzado
+
+### Weaviate
+- Búsqueda híbrida nativa (vector + keyword)
+- GraphQL API
+- Módulos de vectorización integrados
+
+### Qdrant
+- Alto rendimiento
+- Filtering avanzado
+- Payload storage eficiente
+
+## Métricas de Evaluación
+
+### Retrieval Quality
+- Precision@K: Relevantes en top-K / K
+- Recall@K: Relevantes en top-K / Total relevantes
+- MRR (Mean Reciprocal Rank)
+- NDCG (Normalized Discounted Cumulative Gain)
+- Hit Rate: Al menos un documento relevante
+
+### Generation Quality
+- Faithfulness: ¿Respuesta fiel al contexto?
+- Answer Relevance: ¿Responde la pregunta?
+- Context Relevance: ¿Contexto relevante a la pregunta?
+- Groundedness: ¿Afirmaciones soportadas por contexto?
+
+### Frameworks de Evaluación
+- RAGAS (Retrieval Augmented Generation Assessment)
+- TruLens
+- DeepEval
+- LangSmith
