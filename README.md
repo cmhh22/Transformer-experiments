@@ -1,29 +1,47 @@
 # Transformer Experiments
 
-Collection of experiments and projects with Transformer models (BERT, Qwen, RAG).
+Educational projects experimenting with modern Transformer models. The goal is to learn by doing: from fine-tuning classifiers to building complete RAG systems.
 
-## 📂 Projects
+## 📚 Projects
 
-### BERT-Qwen-Classification
-Text classification using BERT and Qwen with comparative analysis.
+### 🔬 BERT vs Qwen: Emotion Classification
 
-- **Status**: 🚀 In development
-- **Technologies**: PyTorch, Transformers, HuggingFace
-- [View project →](./BERT-Qwen-Classification)
+**What I learned:**
+- Fine-tuning bidirectional transformers (BERT) vs decoders (Qwen)
+- Quantitative comparison: BERT is 6x faster, Qwen is 0.14% more accurate
+- Using HuggingFace Transformers, mixed precision training (FP16)
+- Interpretability: confusion matrices, per-class metrics
 
-### RAG-Chroma
-Retrieval-Augmented Generation system with ChromaDB.
+**Technologies:** PyTorch, HuggingFace Transformers, Emotion Dataset (6 classes)
 
-- **Status**: ✅ Completed
-- **Technologies**: ChromaDB, Sentence-Transformers, FLAN-T5
-- [View project →](./RAG-Chroma)
+**Result:** 92.6% accuracy with both models on emotion classification
 
-## 🎯 Objectives
+[View full project →](./BERT-Qwen-Classification)
 
-- Implement and compare state-of-the-art Transformer models
-- Develop RAG systems for Question Answering
-- Experiment with fine-tuning and transfer learning
-- Analysis of attention mechanisms and embeddings
+---
+
+### 🔍 RAG with ChromaDB
+
+**What I learned:**
+- RAG architecture: retrieval + generation for Q&A on documents
+- Vector databases: ChromaDB for semantic search
+- Embeddings: Sentence Transformers (all-MiniLM-L6-v2) for dense representations
+- LangChain to orchestrate the complete pipeline
+- Local LLMs: TinyLlama 1.1B, Groq, Google Gemini (free APIs)
+
+**Technologies:** ChromaDB, LangChain, Sentence Transformers, TinyLlama
+
+**Result:** Functional RAG system that answers questions citing sources
+
+[View full project →](./RAG-Chroma)
+
+## 🎯 Concepts Explored
+
+- **Transfer Learning**: Adapting pre-trained models to specific tasks
+- **Fine-tuning Strategies**: Full learning vs upper layers only
+- **Embeddings**: Vector representations for semantic search
+- **RAG Architecture**: Combining retrieval with generation for grounded answers
+- **Model Comparison**: Systematic benchmarking (speed, accuracy, trade-offs)
 
 ## 📚 Resources
 
@@ -34,9 +52,9 @@ Retrieval-Augmented Generation system with ChromaDB.
 
 ## 👤 Author
 
-**Carlos Hernández**
+**Carlos Manuel Hernández**
 - GitHub: [@cmhh22](https://github.com/cmhh22)
-- LinkedIn: [Carlos Hernández](https://linkedin.com/in/cmhh22)
+
 
 ## 📄 License
 
